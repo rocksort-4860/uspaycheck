@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>US Paycheck — Take-Home Pay Estimator for iOS</title>
+<meta name="description" content="US Paycheck calculates your federal, state, FICA, Social Security, Medicare, 401(k), HSA and SALT-adjusted take-home pay on iOS. Supports the current and recent U.S. tax years. No account, no tracking, all on-device.">
+<style>
+:root{
+  --bg:#F4F5F7; --card:#FFFFFF; --text:#101216; --sub:#6B7280;
+  --border:#E4E6EA; --accent:#0A84FF; --accent-soft:#E7F0FF;
+  --pro:#F97316; --pro-soft:#FFF1E4; --good:#128A4B;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0A0B0D; --card:#16181D; --text:#F2F4F7; --sub:#9BA1AC;
+    --border:#252932; --accent:#3B9BFF; --accent-soft:#12253C;
+    --pro:#FFA23A; --pro-soft:#33220E; --good:#3ED17E;
+  }
+}
+*{box-sizing:border-box; -webkit-tap-highlight-color:transparent;}
+html,body{margin:0; padding:0;}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  background:var(--bg); color:var(--text); line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:760px; margin:0 auto; padding:24px 20px 80px;}
+.hero{padding:48px 0 32px; text-align:center;}
+.badge{display:inline-block; background:var(--accent-soft); color:var(--accent); font-size:12px; font-weight:700; padding:6px 12px; border-radius:20px; letter-spacing:.5px;}
+h1{font-size:34px; line-height:1.15; margin:16px 0 12px; letter-spacing:-.8px; font-weight:800;}
+.lead{font-size:17px; color:var(--sub); margin:0 auto 24px; max-width:560px;}
+.cta-row{display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:8px;}
+.btn{display:inline-block; padding:13px 22px; border-radius:12px; font-weight:700; font-size:15px; text-decoration:none; transition:opacity .15s;}
+.btn:hover{opacity:.9;}
+.btn-primary{background:var(--accent); color:#fff;}
+.btn-pro{background:var(--pro); color:#fff;}
+.btn-ghost{background:transparent; color:var(--text); border:1px solid var(--border);}
+.section{margin-top:48px;}
+h2{font-size:24px; margin:0 0 8px; letter-spacing:-.4px;}
+.sub{color:var(--sub); font-size:14px; margin:0 0 20px;}
+.card{background:var(--card); border:1px solid var(--border); border-radius:16px; padding:18px; margin-bottom:12px;}
+.card h3{margin:0 0 6px; font-size:16px;}
+.card p{margin:0; color:var(--sub); font-size:14px;}
+.grid{display:grid; grid-template-columns:1fr 1fr; gap:10px;}
+@media (max-width:560px){ .grid{grid-template-columns:1fr;} }
+.pro-card{background:linear-gradient(135deg, var(--pro-soft), var(--card)); border:1.5px solid var(--pro);}
+.price{font-size:28px; font-weight:800; color:var(--pro); margin:8px 0 4px;}
+.note{font-size:12px; color:var(--sub); margin-top:16px; text-align:center;}
+.footer{margin-top:56px; padding-top:24px; border-top:1px solid var(--border); text-align:center; font-size:13px; color:var(--sub);}
+.footer a{color:var(--sub); text-decoration:none; margin:0 8px;}
+.footer a:hover{color:var(--text);}
+ul.check{padding-left:20px; margin:8px 0 0;}
+ul.check li{margin:6px 0;}
+.sources{background:var(--card); border:1px solid var(--border); border-radius:14px; padding:16px 18px; font-size:13px; color:var(--sub);}
+.sources b{color:var(--text);}
+.sources ul{margin:6px 0 0; padding-left:18px;}
+  .sources li{margin:4px 0;}
+  .logo{width:88px; height:88px; border-radius:22%; display:block; margin:0 auto 18px; box-shadow:0 6px 22px rgba(0,0,0,.14);}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero">
+    <img class="logo" src="app-icon.png" alt="US Paycheck app icon">
+    <span class="badge">Multi-Year Tax · iOS · On-device</span>
+    <h1>See your real take-home pay<br>in seconds, for any supported year.</h1>
+    <p class="lead">US Paycheck is a clean, privacy-first paycheck estimator for the current and recent U.S. tax years. Enter your gross pay, pick your state, and switch between supported tax years right from the home screen to see exactly what lands in your bank account after federal, state, FICA, Social Security, Medicare, 401(k), HSA and SALT withholding.</p>
+    <div class="cta-row">
+      <!-- 上架批准后，把下面 href="#" 替换为 App Store 真实链接 -->
+      <a class="btn btn-primary" href="#">Download on the App Store</a>
+      <a class="btn btn-ghost" href="support.html">Questions? Support</a>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>What it calculates</h2>
+    <p class="sub">All math runs locally on your iPhone. Nothing is uploaded.</p>
+    <div class="grid">
+      <div class="card"><h3>Federal Income Tax</h3><p>2026 IRS withholding brackets from Rev. Proc. 2025-32. Single, married filing jointly, head of household.</p></div>
+      <div class="card"><h3>State Income Tax</h3><p>State-specific withholding for all 50 states, updated for January 1, 2026 state tax changes.</p></div>
+      <div class="card"><h3>FICA &amp; Medicare</h3><p>2026 Social Security wage base ($184,500), Medicare rate, and the 0.9% additional Medicare surtax above the threshold.</p></div>
+      <div class="card"><h3>Pre-tax Deductions</h3><p>Model 401(k) contributions ($24,500 limit), HSA (individual $4,400 / family $8,750), and the SALT cap ($40,400) impact.</p></div>
+      <div class="card"><h3>Pay Frequency</h3><p>Hourly, daily, weekly, biweekly, semi-monthly, monthly, or annual — pick what matches your paycheck.</p></div>
+      <div class="card"><h3>ZIP-Based Locator</h3><p>Type your ZIP to confirm your state before calculating. No location permission requested.</p></div>
+      <div class="card"><h3>PDF Export (Pro)</h3><p>Save or share a clean PDF of your estimate with one tap, via iOS share sheet.</p></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Built on official sources</h2>
+    <p class="sub">Not a random blog calculator. Every number traces to a primary source.</p>
+    <div class="sources">
+      <b>2026 data is sourced from:</b>
+      <ul>
+        <li>IRS Rev. Proc. 2025-32 (issued Oct 9, 2025) — federal brackets, standard deduction</li>
+        <li>SSA announcement (Oct 24, 2025) — 2026 Social Security wage base</li>
+        <li>IRS 2026 retirement plan limits — 401(k) &amp; HSA inflation adjustments</li>
+        <li>Tax Foundation, <em>State Tax Changes Taking Effect January 1, 2026</em> (Dec 18, 2025)</li>
+        <li>Individual state revenue department announcements</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Privacy by design</h2>
+    <div class="card">
+      <ul class="check">
+        <li><strong>No account. No login. No email required.</strong> Open the app and start calculating.</li>
+        <li><strong>No tracking. No analytics. No ads.</strong> We don't embed any third-party SDK.</li>
+        <li><strong>No server.</strong> The app makes zero network requests. Your salary numbers never leave your device.</li>
+        <li><strong>Your purchases are handled by Apple.</strong> Pro is tied to your Apple ID and restored on any device signed in with the same Apple ID via Restore Purchase. We never store your purchase and cannot read it.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>US Paycheck Pro</h2>
+    <p class="sub">One-time purchase. No subscription. No renewal.</p>
+    <div class="card pro-card">
+      <h3>Unlock Pro for <span style="color:var(--pro)">$3.99 USD</span></h3>
+      <div class="price">$3.99 · One-time</div>
+      <p style="color:var(--text); margin-top:8px;">Remove all limits and export your estimate as a clean PDF. Buy once, keep forever on every device signed in with your Apple ID.</p>
+    </div>
+  </div>
+
+  <p class="note">Estimates only. This app is not a tax advisor. Consult a qualified tax professional before filing.</p>
+
+  <div class="footer">
+    <a href="support.html">Support</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms of Use</a>
+    <p style="margin-top:12px;">© 2026 US Paycheck. All rights reserved.</p>
+  </div>
+
+</div>
+</body>
+</html>

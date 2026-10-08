@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Support — US Paycheck</title>
+<style>
+:root{
+  --bg:#F4F5F7; --card:#FFFFFF; --text:#101216; --sub:#6B7280;
+  --border:#E4E6EA; --accent:#0A84FF; --accent-soft:#E7F0FF;
+  --pro:#F97316;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#0A0B0D; --card:#16181D; --text:#F2F4F7; --sub:#9BA1AC; --border:#252932; --accent:#3B9BFF; --accent-soft:#12253C; --pro:#FFA23A; }
+}
+*{box-sizing:border-box;}
+body{margin:0; font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text",Roboto,Arial,sans-serif; background:var(--bg); color:var(--text); line-height:1.6; -webkit-font-smoothing:antialiased;}
+.wrap{max-width:760px; margin:0 auto; padding:32px 20px 60px;}
+.crumbs{font-size:13px; color:var(--sub); margin-bottom:24px;}
+.crumbs a{color:var(--sub); text-decoration:none;}
+h1{font-size:28px; margin:0 0 8px; letter-spacing:-.5px;}
+.lead{color:var(--sub); margin:0 0 32px;}
+h2{font-size:19px; margin:32px 0 10px;}
+.faq{background:var(--card); border:1px solid var(--border); border-radius:14px; padding:16px 18px; margin-bottom:10px;}
+.faq h3{margin:0 0 6px; font-size:15px;}
+.faq p{margin:0; color:var(--sub); font-size:14px;}
+.contact{background:var(--accent-soft); border-radius:14px; padding:18px; margin-top:24px;}
+.contact a{color:var(--accent); font-weight:700; text-decoration:none;}
+.footer{margin-top:48px; padding-top:20px; border-top:1px solid var(--border); text-align:center; font-size:13px; color:var(--sub);}
+  .footer a{color:var(--sub); text-decoration:none; margin:0 8px;}
+  .logo{width:80px; height:80px; border-radius:22%; display:block; margin:0 auto 20px; box-shadow:0 6px 20px rgba(0,0,0,.12);}
+</style>
+</head>
+<body>
+  <div class="wrap">
+  <img class="logo" src="app-icon.png" alt="US Paycheck">
+  <div class="crumbs"><a href="index.html">Home</a> · Support</div>
+  <h1>Support</h1>
+  <p class="lead">Quick answers to common questions. If you don't find what you need, email us — we usually reply within 48 hours.</p>
+
+  <h2>About the numbers</h2>
+
+  <div class="faq">
+    <h3>Is this my exact paycheck?</h3>
+    <p>No. US Paycheck is an <strong>estimator</strong>, not payroll software. It applies standard IRS and state withholding formulas to a gross amount, but it does not know your W-4 dependents, pre-tax deductions (401(k), HSA, insurance premiums), local income taxes, or supplemental wage rules. Use it to get a ballpark — your employer's payroll system is the source of truth for your actual check.</p>
+  </div>
+
+  <div class="faq">
+    <h3>Which tax years and states are supported?</h3>
+    <p>The app ships with built-in federal and state datasets for multiple recent tax years, switchable from the home screen. ZIP-based state detection is included. If a state or year is missing, email us and we'll add it in the next app update.</p>
+  </div>
+
+  <div class="faq">
+    <h3>The number doesn't match my real paycheck. Why?</h3>
+    <p>Most likely causes: you have pre-tax deductions (401(k), health insurance, FSA), you claim dependents or deductions on your W-4, you live in a city with local income tax (NYC, San Francisco, etc.), or your pay includes overtime/bonus taxed as supplemental wages. These are intentionally not modeled — see the disclaimer above.</p>
+  </div>
+
+  <h2>Pro, purchases &amp; restoring</h2>
+
+  <div class="faq">
+    <h3>What does Pro unlock?</h3>
+    <p>Pro is a one-time $3.99 USD purchase. It removes the free-version usage limits and enables PDF export of your estimate. There is no subscription, no recurring charge, and no account.</p>
+  </div>
+
+  <div class="faq">
+    <h3>I got a new iPhone and lost my Pro. How do I restore it?</h3>
+    <p>Open US Paycheck, tap the Pro chip on the home screen, then tap <strong>Restore Purchase</strong>. You must be signed in to the <strong>same Apple ID</strong> you used when you bought Pro. We do not store your purchase and cannot look it up for you — Apple holds the receipt. If Restore doesn't work, make sure you're signed in to the correct Apple ID in Settings → [your name] → Media &amp; Purchases.</p>
+  </div>
+
+  <div class="faq">
+    <h3>Do I need an account to use Pro?</h3>
+    <p>No. There is no account system, no email, no password. Your Pro license is tied to your Apple ID by Apple's App Store — that's the only identifier needed for restore.</p>
+  </div>
+
+  <div class="faq">
+    <h3>Can I get a refund?</h3>
+    <p>Refunds are handled by Apple, not by us. Request one at <a href="https://reportaproblem.apple.com" target="_blank" rel="noopener">reportaproblem.apple.com</a> within 90 days of purchase.</p>
+  </div>
+
+  <h2>Privacy &amp; data</h2>
+
+  <div class="faq">
+    <h3>Does the app send my salary to a server?</h3>
+    <p>No. The app makes no network requests at all. Every calculation happens on your device. See our <a href="privacy.html">Privacy Policy</a> for the full statement.</p>
+  </div>
+
+  <div class="faq">
+    <h3>Does my Pro state sync across my devices?</h3>
+    <p>No — there is no real-time sync and we store nothing about your purchase. Pro is held by Apple and tied to your Apple ID; on a new device, just tap Restore Purchase while signed in with the same Apple ID and the unlock returns instantly. If you have iOS iCloud Backup turned on, the app's local data (including the unlock flag) is included in your personal, end-to-end-encrypted iCloud backup — but that is a device backup, not a cross-device sync.</p>
+  </div>
+
+  <div class="contact">
+    <strong>Still need help?</strong><br>
+    Email us at <a href="mailto:365504860@qq.com">365504860@qq.com</a>.<br>
+    Please include your iOS version, the tax year and state you were using, and a screenshot of the result if something looks wrong.
+  </div>
+
+  <div class="footer">
+    <a href="index.html">Home</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
+  </div>
+</div>
+</body>
+</html>
