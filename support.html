@@ -1,105 +1,181 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Support — US Paycheck</title>
-<style>
-:root{
-  --bg:#F4F5F7; --card:#FFFFFF; --text:#101216; --sub:#6B7280;
-  --border:#E4E6EA; --accent:#0A84FF; --accent-soft:#E7F0FF;
-  --pro:#F97316;
-}
-@media (prefers-color-scheme: dark){
-  :root{ --bg:#0A0B0D; --card:#16181D; --text:#F2F4F7; --sub:#9BA1AC; --border:#252932; --accent:#3B9BFF; --accent-soft:#12253C; --pro:#FFA23A; }
-}
-*{box-sizing:border-box;}
-body{margin:0; font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text",Roboto,Arial,sans-serif; background:var(--bg); color:var(--text); line-height:1.6; -webkit-font-smoothing:antialiased;}
-.wrap{max-width:760px; margin:0 auto; padding:32px 20px 60px;}
-.crumbs{font-size:13px; color:var(--sub); margin-bottom:24px;}
-.crumbs a{color:var(--sub); text-decoration:none;}
-h1{font-size:28px; margin:0 0 8px; letter-spacing:-.5px;}
-.lead{color:var(--sub); margin:0 0 32px;}
-h2{font-size:19px; margin:32px 0 10px;}
-.faq{background:var(--card); border:1px solid var(--border); border-radius:14px; padding:16px 18px; margin-bottom:10px;}
-.faq h3{margin:0 0 6px; font-size:15px;}
-.faq p{margin:0; color:var(--sub); font-size:14px;}
-.contact{background:var(--accent-soft); border-radius:14px; padding:18px; margin-top:24px;}
-.contact a{color:var(--accent); font-weight:700; text-decoration:none;}
-.footer{margin-top:48px; padding-top:20px; border-top:1px solid var(--border); text-align:center; font-size:13px; color:var(--sub);}
-  .footer a{color:var(--sub); text-decoration:none; margin:0 8px;}
-  .logo{width:80px; height:80px; border-radius:22%; display:block; margin:0 auto 20px; box-shadow:0 6px 20px rgba(0,0,0,.12);}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Support &middot; US Paycheck</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1024 1024'><rect width='1024' height='1024' rx='220' fill='%2334A0AD' /><text x='512' y='700' font-size='640' font-weight='bold' text-anchor='middle' fill='%23F7F3E9' font-family='Arial,sans-serif'>$</text><rect x='180' y='790' width='664' height='56' rx='28' fill='%23F7F3E9' /><rect x='260' y='880' width='504' height='56' rx='28' fill='%23F7F3E9' /></svg>" />
+  <style>
+    html[data-lang="en"] .zh { display: none; }
+    html[data-lang="zh"] .en { display: none; }
+    * { box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      max-width: 800px; margin: 0 auto; padding: 20px;
+      line-height: 1.6; background: #F7F3E9; color: #1C1C1E;
+      transition: background-color .25s ease, color .25s ease;
+    }
+    @media (prefers-color-scheme: dark) {
+      body { background: #1C1C1E; color: #EBE8E2; }
+      a { color: #5FB8C4 !important; }
+      .lang-switch button { background: #2E8C99 !important; }
+      .faq { background: rgba(255,255,255,.05) !important; border-color: rgba(255,255,255,.1) !important; }
+      .contact { background: rgba(46,140,153,.18) !important; }
+    }
+    nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; border-bottom: 1px solid rgba(0,0,0,.1); padding-bottom: 15px; }
+    @media (prefers-color-scheme: dark) { nav { border-bottom-color: rgba(255,255,255,.1); } }
+    .nav-right { display: flex; gap: 20px; align-items: center; }
+    .links a { margin-right: 15px; text-decoration: none; color: #34A0AD; font-size: 14px; }
+    .links a:hover { text-decoration: underline; }
+    .lang-switch button { background: #34A0AD; color: white; border: none; padding: 6px 12px; cursor: pointer; border-radius: 6px; font-size: 13px; margin-left: 5px; }
+    .lang-switch button:hover { opacity: 0.85; }
+    .logo { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 20px; }
+    .logo svg { height: 28px; width: 28px; border-radius: 8px; background: #34A0AD; }
+    h1 { font-size: 28px; margin-top: 30px; margin-bottom: 5px; }
+    h2 { font-size: 18px; margin-top: 34px; margin-bottom: 12px; }
+    p, li { font-size: 15px; margin-bottom: 10px; }
+    a { color: #34A0AD; }
+    .lead { font-size: 15px; color: #8E8E93; margin-bottom: 10px; }
+    .faq { background: rgba(255,255,255,.55); border: 1px solid rgba(0,0,0,.08); border-radius: 12px; padding: 14px 18px; margin-bottom: 10px; }
+    .faq h3 { margin: 0 0 6px; font-size: 15px; }
+    .faq p { margin: 0; font-size: 14px; }
+    .contact { background: rgba(52,160,173,.10); border: 1px solid rgba(52,160,173,.25); border-radius: 12px; padding: 18px; margin-top: 24px; font-size: 15px; }
+  </style>
 </head>
 <body>
-  <div class="wrap">
-  <img class="logo" src="app-icon.png" alt="US Paycheck">
-  <div class="crumbs"><a href="index.html">Home</a> · Support</div>
-  <h1>Support</h1>
-  <p class="lead">Quick answers to common questions. If you don't find what you need, email us — we usually reply within 48 hours.</p>
+  <header>
+    <nav>
+      <span class="logo">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" style="height:28px;width:28px;border-radius:8px;background:#34A0AD">
+          <text x="512" y="700" font-size="640" font-weight="bold" text-anchor="middle" fill="#F7F3E9" font-family="Arial,sans-serif">$</text>
+          <rect x="180" y="790" width="664" height="56" rx="28" fill="#F7F3E9" />
+          <rect x="260" y="880" width="504" height="56" rx="28" fill="#F7F3E9" />
+        </svg>
+        US Paycheck
+      </span>
+      <span class="nav-right">
+        <span class="links">
+          <a href="index.html" class="en">Home</a>
+          <a href="index.html" class="zh">首页</a>
+          <a href="privacy.html" class="en">Privacy</a>
+          <a href="privacy.html" class="zh">隐私</a>
+          <a href="terms.html" class="en">Terms</a>
+          <a href="terms.html" class="zh">条款</a>
+        </span>
+        <span class="lang-switch">
+          <button data-lang="en">EN</button>
+          <button data-lang="zh">中文</button>
+        </span>
+      </span>
+    </nav>
+  </header>
+  <main>
+    <h1 class="en">Support</h1>
+    <h1 class="zh">支持</h1>
+    <p class="lead en">Quick answers to common questions. If you don't find what you need, email us — we usually reply within 48 hours.</p>
+    <p class="lead zh">常见问题速查。如果没有找到你需要的答案，请给我们发邮件——通常 48 小时内回复。</p>
 
-  <h2>About the numbers</h2>
+    <h2 class="en">About the numbers</h2>
+    <h2 class="zh">关于计算结果</h2>
+    <div class="faq">
+      <h3 class="en">Is this my exact paycheck?</h3>
+      <h3 class="zh">这就是我工资单上的准确数字吗？</h3>
+      <p class="en">No. US Paycheck is an <strong>estimator</strong>, not payroll software. It applies standard IRS and state withholding formulas to a gross amount, but it does not know your W-4 dependents, pre-tax deductions (401(k), HSA, insurance premiums), local income taxes, or supplemental wage rules. Use it to get a ballpark — your employer's payroll system is the source of truth for your actual check.</p>
+      <p class="zh">不是。US Paycheck 是一个<strong>估算器</strong>，不是薪资软件。它将标准的 IRS 与州预扣公式套用于毛薪金额，但不知道你的 W-4 受抚养人、税前扣减（401(k)、HSA、保险费）、地方所得税或补充工资规则。请把它当作量级参考——你实际工资单的权威来源是雇主的薪资系统。</p>
+    </div>
+    <div class="faq">
+      <h3 class="en">Which tax years and states are supported?</h3>
+      <h3 class="zh">支持哪些税年和州？</h3>
+      <p class="en">The app ships with built-in federal and state datasets for multiple recent tax years (the current year is selected by default), switchable from the home screen. All 50 states are covered, and ZIP-based state detection is included. If a state or year you need is missing, email us and we'll add it in the next app update.</p>
+      <p class="zh">应用内置了多个近期税年的联邦与州数据集（默认选中当前税年），可在首页切换。覆盖全部 50 个州，并支持基于 ZIP 邮编的州识别。如果你需要的州或税年缺失，请给我们发邮件，我们会在下次应用更新中加入。</p>
+    </div>
+    <div class="faq">
+      <h3 class="en">The number doesn't match my real paycheck. Why?</h3>
+      <h3 class="zh">计算结果和我的真实工资单对不上，为什么？</h3>
+      <p class="en">Most likely causes: you have pre-tax deductions (401(k), health insurance, FSA), you claim dependents or deductions on your W-4, you live in a city with local income tax (NYC, San Francisco, etc.), or your pay includes overtime/bonus taxed as supplemental wages. These are intentionally not modeled — estimates only.</p>
+      <p class="zh">最可能的原因：你有税前扣减（401(k)、健康保险、FSA）；你在 W-4 上申报了受抚养人或扣除项；你所在的城市征收地方所得税（如纽约市、旧金山等）；或者你的收入包含按补充工资税率计税的加班费/奖金。这些属于有意不建模的项目——结果仅供参考。</p>
+    </div>
 
-  <div class="faq">
-    <h3>Is this my exact paycheck?</h3>
-    <p>No. US Paycheck is an <strong>estimator</strong>, not payroll software. It applies standard IRS and state withholding formulas to a gross amount, but it does not know your W-4 dependents, pre-tax deductions (401(k), HSA, insurance premiums), local income taxes, or supplemental wage rules. Use it to get a ballpark — your employer's payroll system is the source of truth for your actual check.</p>
-  </div>
+    <h2 class="en">Pro, purchases &amp; restoring</h2>
+    <h2 class="zh">专业版、购买与恢复</h2>
+    <div class="faq">
+      <h3 class="en">What does Pro unlock?</h3>
+      <h3 class="zh">专业版解锁哪些功能？</h3>
+      <p class="en">Pro is a one-time $3.99 USD purchase. It removes the free-version usage limits and enables PDF export of your estimate. There is no subscription, no recurring charge, and no account.</p>
+      <p class="zh">专业版是一次性 3.99 美元的购买。它解除免费版的使用限制，并解锁估算结果的 PDF 导出。没有订阅、没有周期性扣费，也不需要任何账号。</p>
+    </div>
+    <div class="faq">
+      <h3 class="en">I got a new iPhone and lost my Pro. How do I restore it?</h3>
+      <h3 class="zh">我换了新 iPhone，专业版不见了，怎么恢复？</h3>
+      <p class="en">Open US Paycheck, tap the Pro chip on the home screen, then tap <strong>Restore Purchase</strong>. You must be signed in to the <strong>same Apple ID</strong> you used when you bought Pro. We do not store your purchase and cannot look it up for you — Apple holds the receipt. If Restore doesn't work, make sure you're signed in to the correct Apple ID in Settings → [your name] → Media &amp; Purchases.</p>
+      <p class="zh">打开 US Paycheck，点击首页的专业版标签，然后点击<strong>「恢复购买」</strong>。你必须登录<strong>购买专业版时使用的同一个 Apple ID</strong>。我们不保存你的购买记录，也无法代你查询——凭据由 Apple 保管。如果恢复失败，请在「设置 → [你的姓名] → 媒体与购买项目」中确认登录的是正确的 Apple ID。</p>
+    </div>
+    <div class="faq">
+      <h3 class="en">Do I need an account to use Pro?</h3>
+      <h3 class="zh">使用专业版需要注册账号吗？</h3>
+      <p class="en">No. There is no account system, no email, no password. Your Pro license is tied to your Apple ID by Apple's App Store — that's the only identifier needed for restore.</p>
+      <p class="zh">不需要。本应用没有账号体系、不需要邮箱、也不需要密码。你的专业版许可是由 Apple 的 App Store 绑定到你的 Apple ID 的——这是恢复购买唯一需要的标识。</p>
+    </div>
+    <div class="faq">
+      <h3 class="en">Can I get a refund?</h3>
+      <h3 class="zh">可以退款吗？</h3>
+      <p class="en">Refunds are handled by Apple, not by us. Request one at <a href="https://reportaproblem.apple.com" target="_blank" rel="noopener">reportaproblem.apple.com</a> within 90 days of purchase.</p>
+      <p class="zh">退款由 Apple 处理，不由我们受理。请在购买后 90 天内前往 <a href="https://reportaproblem.apple.com" target="_blank" rel="noopener">reportaproblem.apple.com</a> 申请。</p>
+    </div>
 
-  <div class="faq">
-    <h3>Which tax years and states are supported?</h3>
-    <p>The app ships with built-in federal and state datasets for multiple recent tax years, switchable from the home screen. ZIP-based state detection is included. If a state or year is missing, email us and we'll add it in the next app update.</p>
-  </div>
+    <h2 class="en">Privacy &amp; data</h2>
+    <h2 class="zh">隐私与数据</h2>
+    <div class="faq">
+      <h3 class="en">Does the app send my salary to a server?</h3>
+      <h3 class="zh">应用会把我的工资数据发到服务器吗？</h3>
+      <p class="en">No. The app makes no network requests in normal use — every calculation happens on your device. The single exception is the optional "Update Tax Rules" button, which downloads public tax-rate files and sends nothing about you. See our <a href="privacy.html">Privacy Policy</a> for the full statement.</p>
+      <p class="zh">不会。正常使用中应用不发起任何网络请求——所有计算都在你的设备上完成。唯一的例外是可选的「更新税则」按钮，它只下载公开的税率文件，不发送任何关于你的信息。完整声明见我们的<a href="privacy.html">《隐私政策》</a>。</p>
+    </div>
+    <div class="faq">
+      <h3 class="en">Does my Pro state sync across my devices?</h3>
+      <h3 class="zh">专业版状态会在我的多台设备间同步吗？</h3>
+      <p class="en">No — there is no real-time sync and we store nothing about your purchase. Pro is held by Apple and tied to your Apple ID; on a new device, just tap Restore Purchase while signed in with the same Apple ID and the unlock returns instantly. If you have iOS iCloud Backup turned on, the app's local data (including the unlock flag) is included in your personal, end-to-end-encrypted iCloud backup — but that is a device backup, not a cross-device sync.</p>
+      <p class="zh">不会——没有实时同步，我们也不保存任何关于你购买的信息。专业版由 Apple 保管并绑定到你的 Apple ID；在新设备上，用同一个 Apple ID 登录后点击「恢复购买」，解锁立刻生效。如果你开启了 iOS 的 iCloud 备份，应用的本地数据（包括解锁标记）会包含在你个人端到端加密的 iCloud 备份中——但那是设备备份，不是跨设备同步。</p>
+    </div>
 
-  <div class="faq">
-    <h3>The number doesn't match my real paycheck. Why?</h3>
-    <p>Most likely causes: you have pre-tax deductions (401(k), health insurance, FSA), you claim dependents or deductions on your W-4, you live in a city with local income tax (NYC, San Francisco, etc.), or your pay includes overtime/bonus taxed as supplemental wages. These are intentionally not modeled — see the disclaimer above.</p>
-  </div>
-
-  <h2>Pro, purchases &amp; restoring</h2>
-
-  <div class="faq">
-    <h3>What does Pro unlock?</h3>
-    <p>Pro is a one-time $3.99 USD purchase. It removes the free-version usage limits and enables PDF export of your estimate. There is no subscription, no recurring charge, and no account.</p>
-  </div>
-
-  <div class="faq">
-    <h3>I got a new iPhone and lost my Pro. How do I restore it?</h3>
-    <p>Open US Paycheck, tap the Pro chip on the home screen, then tap <strong>Restore Purchase</strong>. You must be signed in to the <strong>same Apple ID</strong> you used when you bought Pro. We do not store your purchase and cannot look it up for you — Apple holds the receipt. If Restore doesn't work, make sure you're signed in to the correct Apple ID in Settings → [your name] → Media &amp; Purchases.</p>
-  </div>
-
-  <div class="faq">
-    <h3>Do I need an account to use Pro?</h3>
-    <p>No. There is no account system, no email, no password. Your Pro license is tied to your Apple ID by Apple's App Store — that's the only identifier needed for restore.</p>
-  </div>
-
-  <div class="faq">
-    <h3>Can I get a refund?</h3>
-    <p>Refunds are handled by Apple, not by us. Request one at <a href="https://reportaproblem.apple.com" target="_blank" rel="noopener">reportaproblem.apple.com</a> within 90 days of purchase.</p>
-  </div>
-
-  <h2>Privacy &amp; data</h2>
-
-  <div class="faq">
-    <h3>Does the app send my salary to a server?</h3>
-    <p>No. The app makes no network requests at all. Every calculation happens on your device. See our <a href="privacy.html">Privacy Policy</a> for the full statement.</p>
-  </div>
-
-  <div class="faq">
-    <h3>Does my Pro state sync across my devices?</h3>
-    <p>No — there is no real-time sync and we store nothing about your purchase. Pro is held by Apple and tied to your Apple ID; on a new device, just tap Restore Purchase while signed in with the same Apple ID and the unlock returns instantly. If you have iOS iCloud Backup turned on, the app's local data (including the unlock flag) is included in your personal, end-to-end-encrypted iCloud backup — but that is a device backup, not a cross-device sync.</p>
-  </div>
-
-  <div class="contact">
-    <strong>Still need help?</strong><br>
-    Email us at <a href="mailto:365504860@qq.com">365504860@qq.com</a>.<br>
-    Please include your iOS version, the tax year and state you were using, and a screenshot of the result if something looks wrong.
-  </div>
-
-  <div class="footer">
-    <a href="index.html">Home</a>
-    <a href="privacy.html">Privacy</a>
-    <a href="terms.html">Terms</a>
-  </div>
-</div>
+    <div class="contact">
+      <span class="en"><strong>Still need help?</strong><br>
+      Email us at <a href="mailto:365504860@qq.com">365504860@qq.com</a>.<br>
+      Please include your iOS version, the tax year and state you were using, and a screenshot of the result if something looks wrong.</span>
+      <span class="zh"><strong>还需要帮助？</strong><br>
+      请邮件联系 <a href="mailto:365504860@qq.com">365504860@qq.com</a>。<br>
+      请注明你的 iOS 版本、正在使用的税年与所在州，如果结果看起来不对，请附上截图。</span>
+    </div>
+  </main>
+  <footer style="margin-top:50px; border-top:1px solid rgba(0,0,0,.1); padding-top:20px; font-size:14px; display:flex; flex-wrap:wrap; gap:15px;">
+    <span style="font-weight:bold;">US Paycheck</span>
+    <a href="index.html" class="en" style="color:#34A0AD; text-decoration:none;">Home</a>
+    <a href="index.html" class="zh" style="color:#34A0AD; text-decoration:none;">首页</a>
+    <a href="privacy.html" class="en" style="color:#34A0AD; text-decoration:none;">Privacy Policy</a>
+    <a href="privacy.html" class="zh" style="color:#34A0AD; text-decoration:none;">隐私政策</a>
+    <a href="terms.html" class="en" style="color:#34A0AD; text-decoration:none;">Terms of Service</a>
+    <a href="terms.html" class="zh" style="color:#34A0AD; text-decoration:none;">使用条款</a>
+    <span class="copy en" style="margin-left:auto; color:#8E8E93;">© 2026 US Paycheck</span>
+    <span class="copy zh" style="margin-left:auto; color:#8E8E93;">© 2026 US Paycheck</span>
+  </footer>
+  <script>
+    function setLang(lang) {
+      document.documentElement.setAttribute('data-lang', lang);
+      document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+      try { localStorage.setItem('uspaycheck_lang', lang); } catch(e) {}
+      document.title = lang === 'zh' ? '支持 · US Paycheck' : 'Support · US Paycheck';
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+      var saved = 'en';
+      try { saved = localStorage.getItem('uspaycheck_lang') || 'en'; } catch(e) {}
+      setLang(saved);
+      document.querySelectorAll('.lang-switch button').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          setLang(btn.getAttribute('data-lang'));
+        });
+      });
+    });
+  </script>
 </body>
 </html>
+<!-- （注：内容由AI生成） -->

@@ -1,139 +1,251 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>US Paycheck — Take-Home Pay Estimator for iOS</title>
-<meta name="description" content="US Paycheck calculates your federal, state, FICA, Social Security, Medicare, 401(k), HSA and SALT-adjusted take-home pay on iOS. Supports the current and recent U.S. tax years. No account, no tracking, all on-device.">
-<style>
-:root{
-  --bg:#F4F5F7; --card:#FFFFFF; --text:#101216; --sub:#6B7280;
-  --border:#E4E6EA; --accent:#0A84FF; --accent-soft:#E7F0FF;
-  --pro:#F97316; --pro-soft:#FFF1E4; --good:#128A4B;
-}
-@media (prefers-color-scheme: dark){
-  :root{
-    --bg:#0A0B0D; --card:#16181D; --text:#F2F4F7; --sub:#9BA1AC;
-    --border:#252932; --accent:#3B9BFF; --accent-soft:#12253C;
-    --pro:#FFA23A; --pro-soft:#33220E; --good:#3ED17E;
-  }
-}
-*{box-sizing:border-box; -webkit-tap-highlight-color:transparent;}
-html,body{margin:0; padding:0;}
-body{
-  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-  background:var(--bg); color:var(--text); line-height:1.6;
-  -webkit-font-smoothing:antialiased;
-}
-.wrap{max-width:760px; margin:0 auto; padding:24px 20px 80px;}
-.hero{padding:48px 0 32px; text-align:center;}
-.badge{display:inline-block; background:var(--accent-soft); color:var(--accent); font-size:12px; font-weight:700; padding:6px 12px; border-radius:20px; letter-spacing:.5px;}
-h1{font-size:34px; line-height:1.15; margin:16px 0 12px; letter-spacing:-.8px; font-weight:800;}
-.lead{font-size:17px; color:var(--sub); margin:0 auto 24px; max-width:560px;}
-.cta-row{display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:8px;}
-.btn{display:inline-block; padding:13px 22px; border-radius:12px; font-weight:700; font-size:15px; text-decoration:none; transition:opacity .15s;}
-.btn:hover{opacity:.9;}
-.btn-primary{background:var(--accent); color:#fff;}
-.btn-pro{background:var(--pro); color:#fff;}
-.btn-ghost{background:transparent; color:var(--text); border:1px solid var(--border);}
-.section{margin-top:48px;}
-h2{font-size:24px; margin:0 0 8px; letter-spacing:-.4px;}
-.sub{color:var(--sub); font-size:14px; margin:0 0 20px;}
-.card{background:var(--card); border:1px solid var(--border); border-radius:16px; padding:18px; margin-bottom:12px;}
-.card h3{margin:0 0 6px; font-size:16px;}
-.card p{margin:0; color:var(--sub); font-size:14px;}
-.grid{display:grid; grid-template-columns:1fr 1fr; gap:10px;}
-@media (max-width:560px){ .grid{grid-template-columns:1fr;} }
-.pro-card{background:linear-gradient(135deg, var(--pro-soft), var(--card)); border:1.5px solid var(--pro);}
-.price{font-size:28px; font-weight:800; color:var(--pro); margin:8px 0 4px;}
-.note{font-size:12px; color:var(--sub); margin-top:16px; text-align:center;}
-.footer{margin-top:56px; padding-top:24px; border-top:1px solid var(--border); text-align:center; font-size:13px; color:var(--sub);}
-.footer a{color:var(--sub); text-decoration:none; margin:0 8px;}
-.footer a:hover{color:var(--text);}
-ul.check{padding-left:20px; margin:8px 0 0;}
-ul.check li{margin:6px 0;}
-.sources{background:var(--card); border:1px solid var(--border); border-radius:14px; padding:16px 18px; font-size:13px; color:var(--sub);}
-.sources b{color:var(--text);}
-.sources ul{margin:6px 0 0; padding-left:18px;}
-  .sources li{margin:4px 0;}
-  .logo{width:88px; height:88px; border-radius:22%; display:block; margin:0 auto 18px; box-shadow:0 6px 22px rgba(0,0,0,.14);}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>US Paycheck — Take-Home Pay Estimator &middot; 到手工资计算器</title>
+  <meta name="description" content="US Paycheck calculates your federal, state, FICA, Social Security, Medicare, 401(k), HSA and SALT-adjusted take-home pay on iOS. No account, no tracking, all on-device." />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1024 1024'><rect width='1024' height='1024' rx='220' fill='%2334A0AD' /><text x='512' y='700' font-size='640' font-weight='bold' text-anchor='middle' fill='%23F7F3E9' font-family='Arial,sans-serif'>$</text><rect x='180' y='790' width='664' height='56' rx='28' fill='%23F7F3E9' /><rect x='260' y='880' width='504' height='56' rx='28' fill='%23F7F3E9' /></svg>" />
+  <style>
+    html[data-lang="en"] .zh { display: none; }
+    html[data-lang="zh"] .en { display: none; }
+    * { box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      max-width: 800px; margin: 0 auto; padding: 20px;
+      line-height: 1.6; background: #F7F3E9; color: #1C1C1E;
+      transition: background-color .25s ease, color .25s ease;
+    }
+    @media (prefers-color-scheme: dark) {
+      body { background: #1C1C1E; color: #EBE8E2; }
+      a { color: #5FB8C4 !important; }
+      .lang-switch button { background: #2E8C99 !important; }
+      .card { background: rgba(255,255,255,.05) !important; border-color: rgba(255,255,255,.1) !important; }
+      .hero-badge { background: rgba(46,140,153,.18) !important; color: #5FB8C4 !important; }
+      .sources { background: rgba(255,255,255,.05) !important; border-color: rgba(255,255,255,.1) !important; }
+      .pro-card { background: linear-gradient(135deg, rgba(52,160,173,.18), rgba(255,255,255,.05)) !important; }
+    }
+    nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 1px solid rgba(0,0,0,.1); padding-bottom: 15px; }
+    @media (prefers-color-scheme: dark) { nav { border-bottom-color: rgba(255,255,255,.1); } }
+    .nav-right { display: flex; gap: 20px; align-items: center; }
+    .links a { margin-right: 15px; text-decoration: none; color: #34A0AD; font-size: 14px; }
+    .links a:hover { text-decoration: underline; }
+    .lang-switch button { background: #34A0AD; color: white; border: none; padding: 6px 12px; cursor: pointer; border-radius: 6px; font-size: 13px; margin-left: 5px; }
+    .lang-switch button:hover { opacity: 0.85; }
+    .logo { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 20px; }
+    .logo svg { height: 28px; width: 28px; border-radius: 8px; background: #34A0AD; }
+    .hero { text-align: center; padding: 40px 0 10px; }
+    .hero-badge { display: inline-block; background: rgba(52,160,173,.10); border: 1px solid rgba(52,160,173,.25); color: #237982; font-size: 12px; font-weight: 700; padding: 6px 12px; border-radius: 20px; letter-spacing: .5px; }
+    .hero-icon { width: 96px; height: 96px; border-radius: 22px; display: block; margin: 0 auto 18px; background: #34A0AD; box-shadow: 0 6px 22px rgba(0,0,0,.14); }
+    h1 { font-size: 32px; line-height: 1.2; margin: 16px auto 12px; letter-spacing: -.5px; font-weight: 800; max-width: 620px; }
+    .lead { font-size: 16px; color: #8E8E93; margin: 0 auto 24px; max-width: 580px; }
+    .cta-row { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-top: 8px; }
+    .btn { display: inline-block; padding: 13px 22px; border-radius: 12px; font-weight: 700; font-size: 15px; text-decoration: none; transition: opacity .15s; }
+    .btn:hover { opacity: .9; }
+    .btn-primary { background: #34A0AD; color: #fff; }
+    .btn-ghost { background: transparent; color: inherit; border: 1px solid rgba(0,0,0,.2); }
+    @media (prefers-color-scheme: dark) { .btn-ghost { border-color: rgba(255,255,255,.25); } }
+    h2 { font-size: 22px; margin: 44px 0 6px; letter-spacing: -.3px; }
+    .sub { color: #8E8E93; font-size: 14px; margin: 0 0 18px; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    @media (max-width: 560px) { .grid { grid-template-columns: 1fr; } }
+    .card { background: rgba(255,255,255,.55); border: 1px solid rgba(0,0,0,.08); border-radius: 14px; padding: 16px 18px; }
+    .card h3 { margin: 0 0 6px; font-size: 16px; }
+    .card p { margin: 0; font-size: 14px; color: #6B7280; }
+    @media (prefers-color-scheme: dark) { .card p { color: #9BA1AC; } }
+    .sources { background: rgba(255,255,255,.55); border: 1px solid rgba(0,0,0,.08); border-radius: 14px; padding: 16px 18px; font-size: 13px; color: #6B7280; }
+    @media (prefers-color-scheme: dark) { .sources { color: #9BA1AC; } }
+    .sources b { color: inherit; }
+    .sources ul { margin: 6px 0 0; padding-left: 18px; }
+    .sources li { margin: 4px 0; font-size: 13px; }
+    ul.check { padding-left: 20px; margin: 0; }
+    ul.check li { margin: 6px 0; font-size: 14px; }
+    .pro-card { background: linear-gradient(135deg, rgba(52,160,173,.12), rgba(255,255,255,.55)); border: 1.5px solid #34A0AD; }
+    .price { font-size: 28px; font-weight: 800; color: #237982; margin: 8px 0 4px; }
+    @media (prefers-color-scheme: dark) { .price { color: #5FB8C4; } }
+    .note { font-size: 12px; color: #8E8E93; margin-top: 28px; text-align: center; }
+  </style>
 </head>
 <body>
-<div class="wrap">
-
-  <div class="hero">
-    <img class="logo" src="app-icon.png" alt="US Paycheck app icon">
-    <span class="badge">Multi-Year Tax · iOS · On-device</span>
-    <h1>See your real take-home pay<br>in seconds, for any supported year.</h1>
-    <p class="lead">US Paycheck is a clean, privacy-first paycheck estimator for the current and recent U.S. tax years. Enter your gross pay, pick your state, and switch between supported tax years right from the home screen to see exactly what lands in your bank account after federal, state, FICA, Social Security, Medicare, 401(k), HSA and SALT withholding.</p>
-    <div class="cta-row">
-      <!-- 上架批准后，把下面 href="#" 替换为 App Store 真实链接 -->
-      <a class="btn btn-primary" href="#">Download on the App Store</a>
-      <a class="btn btn-ghost" href="support.html">Questions? Support</a>
+  <header>
+    <nav>
+      <span class="logo">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" style="height:28px;width:28px;border-radius:8px;background:#34A0AD">
+          <text x="512" y="700" font-size="640" font-weight="bold" text-anchor="middle" fill="#F7F3E9" font-family="Arial,sans-serif">$</text>
+          <rect x="180" y="790" width="664" height="56" rx="28" fill="#F7F3E9" />
+          <rect x="260" y="880" width="504" height="56" rx="28" fill="#F7F3E9" />
+        </svg>
+        US Paycheck
+      </span>
+      <span class="nav-right">
+        <span class="links">
+          <a href="privacy.html" class="en">Privacy</a>
+          <a href="privacy.html" class="zh">隐私</a>
+          <a href="terms.html" class="en">Terms</a>
+          <a href="terms.html" class="zh">条款</a>
+          <a href="support.html" class="en">Support</a>
+          <a href="support.html" class="zh">支持</a>
+        </span>
+        <span class="lang-switch">
+          <button data-lang="en">EN</button>
+          <button data-lang="zh">中文</button>
+        </span>
+      </span>
+    </nav>
+  </header>
+  <main>
+    <div class="hero">
+      <svg class="hero-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+        <rect width="1024" height="1024" rx="220" fill="#34A0AD" />
+        <text x="512" y="700" font-size="640" font-weight="bold" text-anchor="middle" fill="#F7F3E9" font-family="Arial,sans-serif">$</text>
+        <rect x="180" y="790" width="664" height="56" rx="28" fill="#F7F3E9" />
+        <rect x="260" y="880" width="504" height="56" rx="28" fill="#F7F3E9" />
+      </svg>
+      <span class="hero-badge en">Multi-Year Tax &middot; iOS &middot; On-device</span>
+      <span class="hero-badge zh">多税年 &middot; iOS &middot; 纯端侧</span>
+      <h1 class="en">See your real take-home pay in seconds, for any supported year.</h1>
+      <h1 class="zh">几秒钟看清你的真实到手工资，支持多个税年。</h1>
+      <p class="lead en">US Paycheck is a clean, privacy-first paycheck estimator for the current and recent U.S. tax years. Enter your gross pay, pick your state, and switch between supported tax years right from the home screen to see exactly what lands in your bank account after federal, state, FICA, Social Security, Medicare, 401(k), HSA and SALT withholding.</p>
+      <p class="lead zh">US Paycheck 是一款简洁、隐私优先的美国工资估算器，支持当前及近几个税年。输入毛薪、选择所在州，即可在首页直接切换税年，看清联邦税、州税、FICA、社会保障、医疗保险、401(k)、HSA 与 SALT 扣除后，真正进你银行账户的金额。</p>
+      <div class="cta-row">
+        <!-- 上架批准后，把下面 href="#" 替换为 App Store 真实链接 -->
+        <a class="btn btn-primary en" href="#">Download on the App Store</a>
+        <a class="btn btn-primary zh" href="#">App Store 下载</a>
+        <a class="btn btn-ghost en" href="support.html">Questions? Support</a>
+        <a class="btn btn-ghost zh" href="support.html">有问题？支持页面</a>
+      </div>
     </div>
-  </div>
 
-  <div class="section">
-    <h2>What it calculates</h2>
-    <p class="sub">All math runs locally on your iPhone. Nothing is uploaded.</p>
+    <h2 class="en">What it calculates</h2>
+    <h2 class="zh">它能算什么</h2>
+    <p class="sub en">All math runs locally on your iPhone. Nothing is uploaded.</p>
+    <p class="sub zh">所有计算都在你的 iPhone 本地完成。任何数据都不上传。</p>
     <div class="grid">
-      <div class="card"><h3>Federal Income Tax</h3><p>2026 IRS withholding brackets from Rev. Proc. 2025-32. Single, married filing jointly, head of household.</p></div>
-      <div class="card"><h3>State Income Tax</h3><p>State-specific withholding for all 50 states, updated for January 1, 2026 state tax changes.</p></div>
-      <div class="card"><h3>FICA &amp; Medicare</h3><p>2026 Social Security wage base ($184,500), Medicare rate, and the 0.9% additional Medicare surtax above the threshold.</p></div>
-      <div class="card"><h3>Pre-tax Deductions</h3><p>Model 401(k) contributions ($24,500 limit), HSA (individual $4,400 / family $8,750), and the SALT cap ($40,400) impact.</p></div>
-      <div class="card"><h3>Pay Frequency</h3><p>Hourly, daily, weekly, biweekly, semi-monthly, monthly, or annual — pick what matches your paycheck.</p></div>
-      <div class="card"><h3>ZIP-Based Locator</h3><p>Type your ZIP to confirm your state before calculating. No location permission requested.</p></div>
-      <div class="card"><h3>PDF Export (Pro)</h3><p>Save or share a clean PDF of your estimate with one tap, via iOS share sheet.</p></div>
+      <div class="card">
+        <h3 class="en">Federal Income Tax</h3>
+        <h3 class="zh">联邦所得税</h3>
+        <p class="en">2026 IRS withholding brackets from Rev. Proc. 2025-32. Single, married filing jointly, head of household.</p>
+        <p class="zh">采用 IRS Rev. Proc. 2025-32 的 2026 预扣税率级距。支持单身、夫妻联合申报、户主申报。</p>
+      </div>
+      <div class="card">
+        <h3 class="en">State Income Tax</h3>
+        <h3 class="zh">州所得税</h3>
+        <p class="en">State-specific withholding for all 50 states, updated for January 1, 2026 state tax changes.</p>
+        <p class="zh">覆盖全部 50 个州的州预扣税率，已按 2026 年 1 月 1 日生效的州税变化更新。</p>
+      </div>
+      <div class="card">
+        <h3 class="en">FICA &amp; Medicare</h3>
+        <h3 class="zh">FICA 与医疗保险</h3>
+        <p class="en">2026 Social Security wage base ($184,500), Medicare rate, and the 0.9% additional Medicare surtax above the threshold.</p>
+        <p class="zh">2026 年社会保障工资基数（$184,500）、医疗保险税率，以及超过阈值后 0.9% 的附加医疗保险税。</p>
+      </div>
+      <div class="card">
+        <h3 class="en">Pre-tax Deductions</h3>
+        <h3 class="zh">税前扣减</h3>
+        <p class="en">Model 401(k) contributions ($24,500 limit), HSA (individual $4,400 / family $8,750), and the SALT cap ($40,400) impact.</p>
+        <p class="zh">支持 401(k) 缴存（上限 $24,500）、HSA（个人 $4,400 / 家庭 $8,750）以及 SALT 上限（$40,400）的影响。</p>
+      </div>
+      <div class="card">
+        <h3 class="en">Pay Frequency</h3>
+        <h3 class="zh">发薪周期</h3>
+        <p class="en">Hourly, daily, weekly, biweekly, semi-monthly, monthly, or annual — pick what matches your paycheck.</p>
+        <p class="zh">时薪、日薪、周薪、双周、半月、月薪或年薪——选择与你工资单匹配的周期。</p>
+      </div>
+      <div class="card">
+        <h3 class="en">ZIP-Based Locator</h3>
+        <h3 class="zh">基于 ZIP 的州识别</h3>
+        <p class="en">Type your ZIP to confirm your state before calculating. No location permission requested.</p>
+        <p class="zh">输入 ZIP 邮编确认所在州后再计算。不申请任何定位权限。</p>
+      </div>
+      <div class="card">
+        <h3 class="en">PDF Export (Pro)</h3>
+        <h3 class="zh">PDF 导出（专业版）</h3>
+        <p class="en">Save or share a clean PDF of your estimate with one tap, via iOS share sheet.</p>
+        <p class="zh">一键通过 iOS 分享面板保存或分享一份干净的估算 PDF。</p>
+      </div>
     </div>
-  </div>
 
-  <div class="section">
-    <h2>Built on official sources</h2>
-    <p class="sub">Not a random blog calculator. Every number traces to a primary source.</p>
+    <h2 class="en">Built on official sources</h2>
+    <h2 class="zh">数据来自官方渠道</h2>
+    <p class="sub en">Not a random blog calculator. Every number traces to a primary source.</p>
+    <p class="sub zh">不是随手拼凑的博客计算器。每个数字都能追溯到一手来源。</p>
     <div class="sources">
-      <b>2026 data is sourced from:</b>
+      <b class="en">2026 data is sourced from:</b>
+      <b class="zh">2026 年数据来源：</b>
       <ul>
-        <li>IRS Rev. Proc. 2025-32 (issued Oct 9, 2025) — federal brackets, standard deduction</li>
-        <li>SSA announcement (Oct 24, 2025) — 2026 Social Security wage base</li>
-        <li>IRS 2026 retirement plan limits — 401(k) &amp; HSA inflation adjustments</li>
-        <li>Tax Foundation, <em>State Tax Changes Taking Effect January 1, 2026</em> (Dec 18, 2025)</li>
-        <li>Individual state revenue department announcements</li>
+        <li class="en">IRS Rev. Proc. 2025-32 (issued Oct 9, 2025) — federal brackets, standard deduction</li>
+        <li class="zh">IRS Rev. Proc. 2025-32（2025 年 10 月 9 日发布）——联邦税率级距、标准扣除额</li>
+        <li class="en">SSA announcement (Oct 24, 2025) — 2026 Social Security wage base</li>
+        <li class="zh">SSA 公告（2025 年 10 月 24 日）——2026 年社会保障工资基数</li>
+        <li class="en">IRS 2026 retirement plan limits — 401(k) &amp; HSA inflation adjustments</li>
+        <li class="zh">IRS 2026 年退休计划限额——401(k) 与 HSA 通胀调整</li>
+        <li class="en">Tax Foundation, <em>State Tax Changes Taking Effect January 1, 2026</em> (Dec 18, 2025)</li>
+        <li class="zh">Tax Foundation《2026 年 1 月 1 日生效的州税变化》（2025 年 12 月 18 日）</li>
+        <li class="en">Individual state revenue department announcements</li>
+        <li class="zh">各州税务部门的官方公告</li>
       </ul>
     </div>
-  </div>
 
-  <div class="section">
-    <h2>Privacy by design</h2>
+    <h2 class="en">Privacy by design</h2>
+    <h2 class="zh">隐私优先的设计</h2>
     <div class="card">
       <ul class="check">
-        <li><strong>No account. No login. No email required.</strong> Open the app and start calculating.</li>
-        <li><strong>No tracking. No analytics. No ads.</strong> We don't embed any third-party SDK.</li>
-        <li><strong>No server.</strong> The app makes zero network requests. Your salary numbers never leave your device.</li>
-        <li><strong>Your purchases are handled by Apple.</strong> Pro is tied to your Apple ID and restored on any device signed in with the same Apple ID via Restore Purchase. We never store your purchase and cannot read it.</li>
+        <li class="en"><strong>No account. No login. No email required.</strong> Open the app and start calculating.</li>
+        <li class="zh"><strong>没有账号。无需登录。不需要邮箱。</strong>打开应用直接开始计算。</li>
+        <li class="en"><strong>No tracking. No analytics. No ads.</strong> We don't embed any third-party SDK.</li>
+        <li class="zh"><strong>不追踪。不统计。无广告。</strong>我们不内嵌任何第三方 SDK。</li>
+        <li class="en"><strong>No server.</strong> The app makes zero network requests in normal use. Your salary numbers never leave your device.</li>
+        <li class="zh"><strong>没有服务器。</strong>正常使用中应用不发起任何网络请求。你的工资数字绝不离开你的设备。</li>
+        <li class="en"><strong>Your purchases are handled by Apple.</strong> Pro is tied to your Apple ID and restored on any device signed in with the same Apple ID via Restore Purchase. We never store your purchase and cannot read it.</li>
+        <li class="zh"><strong>购买完全由 Apple 处理。</strong>专业版与你的 Apple ID 绑定，在任何登录同一 Apple ID 的设备上通过「恢复购买」找回。我们从不保存你的购买信息，也无法读取。</li>
       </ul>
     </div>
-  </div>
 
-  <div class="section">
-    <h2>US Paycheck Pro</h2>
-    <p class="sub">One-time purchase. No subscription. No renewal.</p>
+    <h2 class="en">US Paycheck Pro</h2>
+    <h2 class="zh">US Paycheck 专业版</h2>
+    <p class="sub en">One-time purchase. No subscription. No renewal.</p>
+    <p class="sub zh">一次性买断。没有订阅。无需续费。</p>
     <div class="card pro-card">
-      <h3>Unlock Pro for <span style="color:var(--pro)">$3.99 USD</span></h3>
-      <div class="price">$3.99 · One-time</div>
-      <p style="color:var(--text); margin-top:8px;">Remove all limits and export your estimate as a clean PDF. Buy once, keep forever on every device signed in with your Apple ID.</p>
+      <h3 class="en">Unlock Pro for <span style="color:#237982">$3.99 USD</span></h3>
+      <h3 class="zh">仅需 <span style="color:#237982">$3.99</span> 解锁专业版</h3>
+      <div class="price en">$3.99 &middot; One-time</div>
+      <div class="price zh">$3.99 &middot; 一次性</div>
+      <p class="en" style="color:inherit; margin-top:8px;">Remove all limits and export your estimate as a clean PDF. Buy once, keep forever on every device signed in with your Apple ID.</p>
+      <p class="zh" style="color:inherit; margin-top:8px;">解除全部使用限制，并将估算结果导出为干净的 PDF。买一次，在所有登录你 Apple ID 的设备上永久可用。</p>
     </div>
-  </div>
 
-  <p class="note">Estimates only. This app is not a tax advisor. Consult a qualified tax professional before filing.</p>
-
-  <div class="footer">
-    <a href="support.html">Support</a>
-    <a href="privacy.html">Privacy Policy</a>
-    <a href="terms.html">Terms of Use</a>
-    <p style="margin-top:12px;">© 2026 US Paycheck. All rights reserved.</p>
-  </div>
-
-</div>
+    <p class="note en">Estimates only. This app is not a tax advisor. Consult a qualified tax professional before filing.</p>
+    <p class="note zh">仅供参考的估算。本应用不是税务顾问。报税前请咨询合格的税务专业人士。</p>
+  </main>
+  <footer style="margin-top:50px; border-top:1px solid rgba(0,0,0,.1); padding-top:20px; font-size:14px; display:flex; flex-wrap:wrap; gap:15px;">
+    <span style="font-weight:bold;">US Paycheck</span>
+    <a href="privacy.html" class="en" style="color:#34A0AD; text-decoration:none;">Privacy Policy</a>
+    <a href="privacy.html" class="zh" style="color:#34A0AD; text-decoration:none;">隐私政策</a>
+    <a href="terms.html" class="en" style="color:#34A0AD; text-decoration:none;">Terms of Service</a>
+    <a href="terms.html" class="zh" style="color:#34A0AD; text-decoration:none;">使用条款</a>
+    <a href="support.html" class="en" style="color:#34A0AD; text-decoration:none;">Support &amp; Contact</a>
+    <a href="support.html" class="zh" style="color:#34A0AD; text-decoration:none;">支持与联系</a>
+    <span class="copy en" style="margin-left:auto; color:#8E8E93;">© 2026 US Paycheck</span>
+    <span class="copy zh" style="margin-left:auto; color:#8E8E93;">© 2026 US Paycheck</span>
+  </footer>
+  <script>
+    function setLang(lang) {
+      document.documentElement.setAttribute('data-lang', lang);
+      document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+      try { localStorage.setItem('uspaycheck_lang', lang); } catch(e) {}
+      document.title = lang === 'zh' ? 'US Paycheck — 到手工资计算器' : 'US Paycheck — Take-Home Pay Estimator';
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+      var saved = 'en';
+      try { saved = localStorage.getItem('uspaycheck_lang') || 'en'; } catch(e) {}
+      setLang(saved);
+      document.querySelectorAll('.lang-switch button').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          setLang(btn.getAttribute('data-lang'));
+        });
+      });
+    });
+  </script>
 </body>
 </html>
+<!-- （注：内容由AI生成） -->
